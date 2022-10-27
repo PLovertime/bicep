@@ -2,8 +2,9 @@ param sku string = 'F1'
 param repoUrl string = 'https://github.com/azureappserviceoss/wordpress-azure'
 param branch string = 'master'
 param location string = resourceGroup().location
-var hostingPlanName_var = '${uniqueString(resourceGroup().id)}hostingplan'
-var siteName_var = '${uniqueString(resourceGroup().id)}website'
+param hostingName string 
+var hostingPlanName_var = '${hostingName(resourceGroup().id)}hostingplan'
+var siteName_var = '${hostingName(resourceGroup().id)}website'
 resource hostingPlanName 'Microsoft.Web/serverfarms@2020-06-01' = {
   sku: {
     name: sku
