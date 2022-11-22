@@ -1,9 +1,8 @@
-//az group create --location swedencentral --resource-group lisub-rg-bic1
+//az group create --location swedencentral --resource-group vaxc0002
 //The above command creates the group
-
 // Deploy this template with
-// az deployment group create --resource-group lisub-rg-bic1 \ 
-// --template-file .\repos\ar\bicep\initial.bicep
+// az deployment group create --resource-group vaxc0002 --template-file ..\customNet.bicep --parameters vnetPrefix="10.131.2"
+
 //@description('The number of subnets to create')
 //param numberOfsubnets 
 
