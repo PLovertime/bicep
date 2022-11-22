@@ -1,6 +1,5 @@
-//az group create --location swedencentral --resource-group vaxc0002
+//az group create --location swedencentral --resource-group lisub-rg-bic1
 //The above command creates the group
-// az deployment group create --resource-group vaxc0002 --template-file ..\customNet.bicep --parameters vnetPrefix="10.131.2" -c
 
 // Deploy this template with
 // az deployment group create --resource-group lisub-rg-bic1 \ 
@@ -40,15 +39,14 @@ param subnet2Name string = '${resourceGroup().name}srv002'
 
 @description('AzureBastionSubnet')
 param azureBastionsubnet string = 'AzureBastionSubnet'
-param aBsn string = '${vnetPrefix}.96/27'
+param aBsn string = '${vnetPrefix}.128/26'
 
 @description('DMZ network')
 param subnet3Name string = '${resourceGroup().name}dmz001'
-param subnet3Prefix string = '${vnetPrefix}.128/27'
+param subnet3Prefix string = '${vnetPrefix}.224/27'
 
 @description('Location for all resources.')
 param location string = resourceGroup().location
-
 
 resource vnet 'Microsoft.Network/virtualNetworks@2021-08-01' = {
   name: vnetName
